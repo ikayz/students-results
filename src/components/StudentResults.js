@@ -9,11 +9,18 @@ class StudentResults extends Component {
     address: "",
     gender: "",
     subjects: ""
-
   }
 
   submit = () => {
     console.log('-------', this.state);
+    this.setState({
+      name: '',
+      age: '',
+      address: '',
+      gender: '',
+      subjects: ''
+    });
+    this.props.navigation.navigate('NavigationStack');
   }
 
   render() {
