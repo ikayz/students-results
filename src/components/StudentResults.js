@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, View, Button} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
 class StudentResults extends Component {
@@ -11,6 +11,11 @@ class StudentResults extends Component {
     subjects: ""
 
   }
+
+  submit = () => {
+    console.log('-------', this.state);
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -20,6 +25,7 @@ class StudentResults extends Component {
         <TextInput style={styles.inputView} placeholder="address" onChangeText={address => this.setState({address})} value={this.state.address}/>
         <TextInput style={styles.inputView} placeholder="gender" onChangeText={gender => this.setState({gender})} value={this.state.gender}/>
         <TextInput style={styles.inputView} placeholder="subjects" onChangeText={subjects => this.setState({subjects})} value={this.state.subjects}/>
+        <Button title="Submit" onPress={this.submit}/>
       </View>
     )
   }
