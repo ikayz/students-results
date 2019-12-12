@@ -15,11 +15,11 @@ class StudentResults extends Component {
     return (
       <View style={styles.container}>
         <Text> Students Results </Text>
-        <TextInput placeholder="student name" onChangeText={name => this.setState({name})} value={this.state.name}/>
-        <TextInput placeholder="age" onChangeText={age => this.setState({age})} value={this.state.age}/>
-        <TextInput placeholder="address" onChangeText={address => this.setState({address})} value={this.state.address}/>
-        <TextInput placeholder="gender" onChangeText={gender => this.setState({gender})} value={this.state.gender}/>
-        <TextInput placeholder="subjects" onChangeText={subjects => this.setState({subjects})} value={this.state.subjects}/>
+        <TextInput style={styles.inputView} placeholder="student name" onChangeText={name => this.setState({name})} value={this.state.name}/>
+        <TextInput style={styles.inputView} placeholder="age" onChangeText={age => this.setState({age})} value={this.state.age}/>
+        <TextInput style={styles.inputView} placeholder="address" onChangeText={address => this.setState({address})} value={this.state.address}/>
+        <TextInput style={styles.inputView} placeholder="gender" onChangeText={gender => this.setState({gender})} value={this.state.gender}/>
+        <TextInput style={styles.inputView} placeholder="subjects" onChangeText={subjects => this.setState({subjects})} value={this.state.subjects}/>
       </View>
     )
   }
@@ -29,8 +29,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#fff',
+    padding: 10,
+  },
+  inputView: {
+    marginTop: 15,
+    height: 40,
+    borderColor: '#069',
+    borderRadius: 5,
+    borderWidth: 1,
   }
 });
 
