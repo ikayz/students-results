@@ -6,6 +6,7 @@ class Students extends Component {
     return (
       <View style={styles.container}>
         <Text> Students </Text>
+
       </View>
     )
   }
