@@ -14,6 +14,18 @@ class Students extends Component {
     return (
       <View style={styles.container}>
         <Text> Retrieve Students Results </Text>
+        <FlatList style={{width: '100%'}}
+        data={this.props.listStudent} keyExtractor={(item) => item.key}
+        renderItem={({item}) => {
+          return (
+            <View>
+              <Text>
+                {item.name},{item.address}
+              </Text>
+            </View>
+          )
+        }}
+        />
       </View>
     )
   }
@@ -32,8 +44,8 @@ function mapStateToProps(state) {
   const listStudent = _.map(state.studentsResult.studentsResult, (val, key) => {
     return {
       ...val,
-      key:key
-    }
+      key: key,
+    };
   });
 
   return {
