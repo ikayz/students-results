@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet, View, Button, FlatList, TouchableHighlight} from 'react-native';
-import {getStudents} from '../actions';
+import {getStudents, deleteStudents} from '../actions';
 import {connect} from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import _ from 'lodash';
@@ -14,7 +14,6 @@ class Students extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Retrieve Students Results </Text>
         <FlatList style={{width: '100%'}}
         showsVerticalScrollIndicator={false}
         data={this.props.listStudent} keyExtractor={(item) => item.key}
@@ -32,9 +31,9 @@ class Students extends Component {
                     <Button title="Edit" onPress={() => this.props.navigation.navigate('Edit')}/>
                   </View>
                 </TouchableHighlight>
-                <TouchableHighlight style={{marginTop: 10,}}>
+                <TouchableHighlight style={{marginTop: 10,}} onPress={() => console.log(item.key)}>
                   <View>
-                    <Button title="Delete" />
+                    <Button title="Delete" onPress={() => this.props.deleteStudents(item.key)}/>
                   </View>
                 </TouchableHighlight>
               </View>
@@ -86,4 +85,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {getStudents})(Students);
+export default connect(mapStateToProps, {getStudents, deleteStudents})(Students);

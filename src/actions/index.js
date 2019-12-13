@@ -16,3 +16,9 @@ export function postStudents(name, age, address, gender, subjects) {
     firebase.database().ref('/students').push({name, age, address, gender, subjects});
   }
 }
+
+export function deleteStudents(key) {
+  return (dispatch) => {
+    firebase.database().ref(`/students/${key}`).remove();
+  }
+}
