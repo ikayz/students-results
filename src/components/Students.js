@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text, StyleSheet, View, Button, FlatList, TouchableHighlight} from 'react-native';
 import {getStudents} from '../actions';
 import {connect} from 'react-redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import _ from 'lodash';
 
 class Students extends Component {
@@ -26,9 +27,14 @@ class Students extends Component {
               <Text style={styles.textView2}>Gender: {item.gender}</Text>
               <Text style={styles.textView2}>Subjects: {item.subjects}</Text>
               <View>
-                <TouchableHighlight>
+                <TouchableHighlight onPress={() => this.props.navigation.navigate('Edit', ...item)}>
                   <View>
-                    <Icon size={30} color="#fff" name="rocket" />
+                    <Button title="Edit" onPress={() => this.props.navigation.navigate('Edit')}/>
+                  </View>
+                </TouchableHighlight>
+                <TouchableHighlight style={{marginTop: 10,}}>
+                  <View>
+                    <Button title="Delete" />
                   </View>
                 </TouchableHighlight>
               </View>

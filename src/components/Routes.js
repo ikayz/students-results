@@ -8,10 +8,19 @@ import {createAppContainer} from 'react-navigation';
 const NavigationStack = createStackNavigator({
   Students: {
     screen: Students,
+    navigationOptions:() => ({
+      headerTitle: "Student Results"
+    }),
   },
   Edit: {
     screen: Edit,
+    navigationOptions: () => ({
+      headerTitle: "Edit Results",
+    })
   },
+},
+  {
+    headerLayoutPreset: 'center',
 });
 
 const BottomTabNav = createBottomTabNavigator({
