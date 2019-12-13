@@ -10,3 +10,9 @@ export function getStudents() {
     });
   };
 }
+
+export function postStudents(name, age, address, gender, subjects) {
+  return (dispatch) => {
+    firebase.database().ref('/students').push({name, age, address, gender, subjects});
+  }
+}

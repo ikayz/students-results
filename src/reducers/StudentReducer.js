@@ -1,9 +1,10 @@
 export default function(state = {}, action) {
   switch (action.type) {
     case 'STUDENT_FETCH':
-      console.log(action.payload);
+
       return {
         ...state,
+        studentsResult: action.payload,
       };
 
     default:

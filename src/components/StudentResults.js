@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet, View, Button} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import {postStudents} from '../actions/index';
+import {connect} from 'react-redux';
 
 class StudentResults extends Component {
   state = {
@@ -12,7 +14,7 @@ class StudentResults extends Component {
   }
 
   submit = () => {
-    console.log('-------', this.state);
+    this.props.postStudents(this.state.name, this.state.age, this.state.address, this.state.gender, this.state.subjects);
     this.setState({
       name: '',
       age: '',
@@ -54,4 +56,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default StudentResults;
+export default connect(null, {postStudents}) (StudentResults);
