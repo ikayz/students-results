@@ -22,3 +22,9 @@ export function deleteStudents(key) {
     firebase.database().ref(`/students/${key}`).remove();
   }
 }
+
+export function editStudents(name, age, address, gender, subjects, key) {
+  return (dispatch) => {
+    firebase.database().ref(`/students`).child(key).update(name, age, address, gender, subjects);
+  }
+}
